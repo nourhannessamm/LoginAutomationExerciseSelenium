@@ -33,6 +33,23 @@ public class LoginTestCases {
                 .clickOnLoginButton();
     }
 
+    @Test(description = "End to End Login Scenario")
+    @Description("As a user, I want to log in using valid credentials so that I can access my account, and then log out to securely end my session.")
+    @Severity(SeverityLevel.CRITICAL)
+    public void e2eLoginScenario() {
+        new HomePage(driver)
+                .navigateToHomePage()
+                .validateThatWeAreInHomePage();
+        new MainMenu(driver)
+                .clickOnSignUpLoginButton();
+        new LoginPage(driver)
+                .validateLoginTextVisibility()
+                .enterEmailAddress(testData.getTestData("email"))
+                .enterPassword(testData.getTestData("password"))
+                .clickOnLoginButton();
+        new MainMenu(driver)
+                .clickOnLogoutButton();
+    }
 
     @Test(description = "Unsuccessful Login with Invalid Credentials")
     @Description("User should not be able to access the account with invalid credentials.The system must prevent unauthorized access and display an appropriate error message when incorrect login details are entered.")

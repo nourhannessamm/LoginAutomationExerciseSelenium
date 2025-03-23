@@ -20,12 +20,17 @@ public class MainMenu {
     private By ApiTestingButton = By.partialLinkText("API Testing");
     private By  VideoTutorialsButton = By.partialLinkText("Video Tutorials");
     private By  ContactUsButton = By.partialLinkText("Contact us");
+    private By LogoutButton = By.linkText("Logout");
 
     /// // Action Methods //////
     @Step("Clicking on Sign up or Login Button")
     public void clickOnSignUpLoginButton(){
        // driver.findElement(SignUporLoginButton).click();
         ElementActions.click(driver,SignUporLoginButton); //by utilities
+    }
+    @Step("Clicking on Logout Button")
+    public void clickOnLogoutButton(){
+        ElementActions.click(driver,LogoutButton);
     }
 
 
